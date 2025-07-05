@@ -19,6 +19,8 @@ const headlines = [
 
 // POST /business-data
 app.post('/business-data', (req, res) => {
+
+   console.log("Received:", req.body); 
   const { name, location } = req.body;
 
   const headline = headlines[0]
