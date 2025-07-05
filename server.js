@@ -2,11 +2,11 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 
-// Middleware
-// app.use(cors());
+// ✅ CORS: Fix trailing slash issue
 app.use(cors({
-  origin: 'https://local-business-dashboard-coral.vercel.app/' // ✅ Replace with your actual frontend URL
+  origin: 'https://local-business-dashboard-coral.vercel.app'
 }));
+
 app.use(express.json());
 
 // Dummy SEO headlines
@@ -44,8 +44,8 @@ app.get('/regenerate-headline', (req, res) => {
   res.json({ headline });
 });
 
-// Start server
-const PORT = 4000;
+// ✅ Let Render assign the port
+const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
   console.log(`🚀 Server running at http://localhost:${PORT}`);
 });
