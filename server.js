@@ -3,13 +3,15 @@ const cors = require('cors');
 const app = express();
 
 // ✅ CORS: Fix trailing slash issue
-app.use(cors({
-  origin: [
-    'https://local-business-dashboard-86lesimjj.vercel.app',
-    'https://local-business-dashboard-coral.vercel.app',
-    'http://localhost:3000'
-  ]
-}));
+// app.use(cors({
+//   origin: [
+//     'https://local-business-dashboard-86lesimjj.vercel.app',
+//     'https://local-business-dashboard-coral.vercel.app',
+//     'http://localhost:3000'
+//   ]
+// }));
+
+app.use(cors({ origin: '*' }));
 
 app.use(express.json());
 
